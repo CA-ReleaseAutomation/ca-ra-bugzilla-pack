@@ -1,0 +1,141 @@
+{
+   "RESTAction" : {
+      "actionPack" : {
+         "name" : "Bugzilla",
+         "category" : "Bugzilla",
+         "description" : "Integration actions for Bugzilla defect tracking portal.",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "Windows and Linux",
+         "version" : "0.1",
+         "license" : "",
+         "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/bugzilla/bugzilla.jpg",
+         "lastModified" : "2014-01-31T00:57:21.267+05:30",
+         "tags" : [ ],
+         "packageName" : "bugzilla"
+      },
+      "name" : "Bugzilla - Create Bug",
+      "category" : "",
+      "description" : "Create a new bug.",
+      "inputParamList" : [ {
+         "name" : "user",
+         "type" : "String",
+         "description" : "user Description",
+         "required" : false,
+         "variableName" : "user",
+         "arrayOption" : false
+      }, {
+         "name" : "password",
+         "type" : "String",
+         "description" : "password Description",
+         "required" : false,
+         "variableName" : "password",
+         "arrayOption" : false
+      }, {
+         "name" : "Protocol",
+         "type" : "String",
+         "description" : "Connection protocol to the Bugzilla server.",
+         "required" : false,
+         "defaultValue" : "http",
+         "variableName" : "protocol",
+         "arrayOption" : false
+      }, {
+         "name" : "Host",
+         "type" : "String",
+         "description" : "The host to connect to Bugzilla on.",
+         "required" : false,
+         "defaultValue" : "localhost",
+         "variableName" : "host",
+         "arrayOption" : false
+      }, {
+         "name" : "Port",
+         "type" : "Integer",
+         "description" : "The numeric port on which Bugzilla is running.",
+         "required" : false,
+         "defaultValue" : "3000",
+         "variableName" : "port",
+         "arrayOption" : false
+      }, {
+         "name" : "Source Path",
+         "type" : "String",
+         "description" : "Accurate source path after host and port",
+         "required" : false,
+         "variableName" : "sourcepath",
+         "arrayOption" : false
+      }, {
+         "name" : "Product",
+         "type" : "String",
+         "description" : "The product to use in this action.",
+         "required" : true,
+         "variableName" : "product",
+         "arrayOption" : false
+      }, {
+         "name" : "Component",
+         "type" : "String",
+         "description" : "The component to use in this action.",
+         "required" : true,
+         "variableName" : "component",
+         "arrayOption" : false
+      }, {
+         "name" : "Summary",
+         "type" : "String",
+         "description" : "The summary to use in this action.",
+         "required" : true,
+         "variableName" : "summary",
+         "arrayOption" : false
+      }, {
+         "name" : "Version",
+         "type" : "String",
+         "description" : "The version to use in this action.",
+         "required" : true,
+         "variableName" : "version",
+         "arrayOption" : false
+      }, {
+         "name" : "Comments",
+         "type" : "String",
+         "description" : "The comments to use in this action.",
+         "required" : false,
+         "variableName" : "comments",
+         "arrayOption" : false
+      }, {
+         "name" : "Priority",
+         "type" : "String",
+         "description" : "The priority to use in this action.",
+         "required" : false,
+         "variableName" : "priority",
+         "arrayOption" : false
+      }, {
+         "name" : "Severity",
+         "type" : "String",
+         "description" : "The severity to use in this action.",
+         "required" : false,
+         "variableName" : "severity",
+         "arrayOption" : false
+      } ],
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "Standard out from the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Execution succeeded.",
+      "type" : "REST",
+      "complete" : true,
+      "lastModified" : "2014-10-29T16:55:05.179+05:30",
+      "className" : "BugzillaCreateBug",
+      "packageName" : "com.ca.bugzilla",
+      "requestURI" : "${Protocol}://${Host}:${Port}/${Source Path}/bug",
+      "requestMethod" : "POST",
+      "timeout" : 30,
+      "language" : "",
+      "bodyContent" : {
+         "contentType" : "application/json",
+         "encoding" : "utf-8",
+         "rawRequest" : "{\"product\":\"${Product}\",\"component\":\"${Component}\",\"summary\":\"${Summary}\",\"version\":\"${Version}\",\"comments\":\"${Comments}\",\"priority\":\"${Priority}\",\"severity\":\"${Severity}\"}"
+      },
+      "authentication" : [ "BASIC", "NONE" ]
+   }
+}

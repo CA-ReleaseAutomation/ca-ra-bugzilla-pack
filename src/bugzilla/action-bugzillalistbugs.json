@@ -1,0 +1,132 @@
+{
+   "RESTAction" : {
+      "actionPack" : {
+         "name" : "Bugzilla",
+         "category" : "Bugzilla",
+         "description" : "Integration actions for Bugzilla defect tracking portal.",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "Windows and Linux",
+         "version" : "0.1",
+         "license" : "",
+         "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/bugzilla/bugzilla.jpg",
+         "lastModified" : "2014-01-31T00:57:21.267+05:30",
+         "tags" : [ ],
+         "packageName" : "bugzilla"
+      },
+      "name" : "Bugzilla - List Bugs",
+      "category" : "",
+      "description" : "List bugs as per criteria.",
+      "inputParamList" : [ {
+         "name" : "user",
+         "type" : "String",
+         "description" : "user Description",
+         "required" : false,
+         "variableName" : "user",
+         "arrayOption" : false
+      }, {
+         "name" : "password",
+         "type" : "String",
+         "description" : "password Description",
+         "required" : false,
+         "variableName" : "password",
+         "arrayOption" : false
+      }, {
+         "name" : "Protocol",
+         "type" : "String",
+         "description" : "Connection protocol to the Bugzilla server.",
+         "required" : false,
+         "defaultValue" : "http",
+         "value" : "http",
+         "variableName" : "protocol",
+         "arrayOption" : false
+      }, {
+         "name" : "Host",
+         "type" : "String",
+         "description" : "The host to connect to Bugzilla on.",
+         "required" : false,
+         "defaultValue" : "localhost",
+         "value" : "bugzilla.mozilla.org",
+         "variableName" : "host",
+         "arrayOption" : false
+      }, {
+         "name" : "Port",
+         "type" : "Integer",
+         "description" : "The numeric port on which Bugzilla is running.",
+         "required" : false,
+         "defaultValue" : "3000",
+         "value" : "80",
+         "variableName" : "port",
+         "arrayOption" : false
+      }, {
+         "name" : "Source Path",
+         "type" : "String",
+         "description" : "Accurate source path after host and port",
+         "required" : false,
+         "value" : "rest",
+         "variableName" : "sourcepath",
+         "arrayOption" : false
+      }, {
+         "name" : "Product",
+         "type" : "String",
+         "description" : "The product criteria for this search.",
+         "required" : false,
+         "value" : "MozillaClassic",
+         "variableName" : "product",
+         "arrayOption" : false
+      }, {
+         "name" : "Component",
+         "type" : "String",
+         "description" : "The component criteria for this search.",
+         "required" : false,
+         "variableName" : "component",
+         "arrayOption" : false
+      }, {
+         "name" : "Priority",
+         "type" : "String",
+         "description" : "The priority criteria for this search.",
+         "required" : false,
+         "variableName" : "priority",
+         "arrayOption" : false
+      }, {
+         "name" : "Severity",
+         "type" : "String",
+         "description" : "The severity criteria for this search.",
+         "required" : false,
+         "variableName" : "severity",
+         "arrayOption" : false
+      }, {
+         "name" : "Parameters",
+         "type" : "String",
+         "description" : "The parameters used as criteria for this search.",
+         "required" : false,
+         "variableName" : "parameters",
+         "arrayOption" : false
+      } ],
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "Standard out from the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Execution succeeded.",
+      "type" : "REST",
+      "complete" : true,
+      "lastModified" : "2014-10-29T16:55:06.388+05:30",
+      "className" : "BugzillaListBugs",
+      "packageName" : "com.ca.bugzilla",
+      "requestURI" : "${Protocol}://${Host}:${Port}/${Source Path}/bug?product=${Product}&component=${Component}&priority=${Priority}&severity=${Severity}&${Parameters}",
+      "requestMethod" : "GET",
+      "timeout" : 30,
+      "language" : "",
+      "bodyContent" : {
+         "contentType" : "",
+         "encoding" : "",
+         "rawRequest" : ""
+      },
+      "authentication" : [ "NONE" ]
+   }
+}

@@ -1,0 +1,106 @@
+{
+   "RESTAction" : {
+      "actionPack" : {
+         "name" : "Bugzilla",
+         "category" : "Bugzilla",
+         "description" : "Integration actions for Bugzilla defect tracking portal.",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "Windows and Linux",
+         "version" : "0.1",
+         "license" : "",
+         "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/bugzilla/bugzilla.jpg",
+         "lastModified" : "2014-01-31T00:57:21.267+05:30",
+         "tags" : [ ],
+         "packageName" : "bugzilla"
+      },
+      "name" : "Bugzilla - Update Attachment",
+      "category" : "",
+      "description" : "Update an attachment for a bug.",
+      "inputParamList" : [ {
+         "name" : "user",
+         "type" : "String",
+         "description" : "user Description",
+         "required" : false,
+         "variableName" : "user",
+         "arrayOption" : false
+      }, {
+         "name" : "password",
+         "type" : "String",
+         "description" : "password Description",
+         "required" : false,
+         "variableName" : "password",
+         "arrayOption" : false
+      }, {
+         "name" : "Protocol",
+         "type" : "String",
+         "description" : "Connection protocol to the Bugzilla server.",
+         "required" : false,
+         "defaultValue" : "http",
+         "variableName" : "protocol",
+         "arrayOption" : false
+      }, {
+         "name" : "Host",
+         "type" : "String",
+         "description" : "The host to connect to Bugzilla on.",
+         "required" : false,
+         "defaultValue" : "localhost",
+         "variableName" : "host",
+         "arrayOption" : false
+      }, {
+         "name" : "Port",
+         "type" : "Integer",
+         "description" : "The numeric port on which Bugzilla is running.",
+         "required" : false,
+         "defaultValue" : "3000",
+         "variableName" : "port",
+         "arrayOption" : false
+      }, {
+         "name" : "Source Path",
+         "type" : "String",
+         "description" : "Accurate source path after host and port",
+         "required" : false,
+         "variableName" : "sourcepath",
+         "arrayOption" : false
+      }, {
+         "name" : "Id",
+         "type" : "String",
+         "description" : "The Id of the bug to which a comment will be added.",
+         "required" : false,
+         "variableName" : "id",
+         "arrayOption" : false
+      }, {
+         "name" : "Attachment",
+         "type" : "String",
+         "description" : "The Bugzilla Attachment object.",
+         "required" : true,
+         "variableName" : "attachment",
+         "arrayOption" : false
+      } ],
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "Standard out from the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Execution succeeded.",
+      "type" : "REST",
+      "complete" : true,
+      "lastModified" : "2014-10-29T16:55:07.07+05:30",
+      "className" : "BugzillaUpdateAttachment",
+      "packageName" : "com.ca.bugzilla",
+      "requestURI" : "${Protocol}://${Host}:${Port}/${Source Path}/attachment/${Id}",
+      "requestMethod" : "PUT",
+      "timeout" : 30,
+      "language" : "",
+      "bodyContent" : {
+         "contentType" : "application/json",
+         "encoding" : "utf-8",
+         "rawRequest" : "${Attachment}"
+      },
+      "authentication" : [ "BASIC", "NONE" ]
+   }
+}

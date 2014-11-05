@@ -1,0 +1,16 @@
+{
+   "ActionPack" : {
+      "author" : "CA Technologies",
+      "category" : "Bugzilla",
+      "dependencies" : "",
+      "description" : "Integration actions for Bugzilla defect tracking portal.",
+      "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/bugzilla/bugzilla.jpg",
+      "lastModified" : "2014-01-30T13:27:21.267-06:00",
+      "license" : "",
+      "name" : "Bugzilla",
+      "packageName" : "bugzilla",
+      "platform" : "Windows and Linux",
+      "tags" : [ ],
+      "version" : "0.1"
+   }
+}

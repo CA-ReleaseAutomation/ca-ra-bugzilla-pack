@@ -1,0 +1,106 @@
+{
+   "RESTAction" : {
+      "actionPack" : {
+         "name" : "Bugzilla",
+         "category" : "Bugzilla",
+         "description" : "Integration actions for Bugzilla defect tracking portal.",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "Windows and Linux",
+         "version" : "0.1",
+         "license" : "",
+         "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/bugzilla/bugzilla.jpg",
+         "lastModified" : "2014-01-31T00:57:21.267+05:30",
+         "tags" : [ ],
+         "packageName" : "bugzilla"
+      },
+      "name" : "Bugzilla - Get Attachment",
+      "category" : "",
+      "description" : "Get the Bugzilla Attachment object by id.",
+      "inputParamList" : [ {
+         "name" : "user",
+         "type" : "String",
+         "description" : "user Description",
+         "required" : false,
+         "value" : "",
+         "variableName" : "user",
+         "arrayOption" : false
+      }, {
+         "name" : "password",
+         "type" : "String",
+         "description" : "password Description",
+         "required" : false,
+         "value" : "",
+         "variableName" : "password",
+         "arrayOption" : false
+      }, {
+         "name" : "Protocol",
+         "type" : "String",
+         "description" : "Connection protocol to the Bugzilla server.",
+         "required" : false,
+         "defaultValue" : "http",
+         "value" : "",
+         "variableName" : "protocol",
+         "arrayOption" : false
+      }, {
+         "name" : "Host",
+         "type" : "String",
+         "description" : "The host to connect to Bugzilla on.",
+         "required" : false,
+         "defaultValue" : "localhost",
+         "value" : "",
+         "variableName" : "host",
+         "arrayOption" : false
+      }, {
+         "name" : "Port",
+         "type" : "Integer",
+         "description" : "The numeric port on which Bugzilla is running.",
+         "required" : false,
+         "defaultValue" : "3000",
+         "value" : "",
+         "variableName" : "port",
+         "arrayOption" : false
+      }, {
+         "name" : "Source Path",
+         "type" : "String",
+         "description" : "Accurate source path after host and port",
+         "required" : false,
+         "value" : "",
+         "variableName" : "sourcepath",
+         "arrayOption" : false
+      }, {
+         "name" : "Id",
+         "type" : "String",
+         "description" : "The Id of the attachment to retrieve.",
+         "required" : false,
+         "value" : "",
+         "variableName" : "id",
+         "arrayOption" : false
+      } ],
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "Standard out from the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Execution succeeded.",
+      "type" : "REST",
+      "complete" : true,
+      "lastModified" : "2014-10-29T16:55:05.429+05:30",
+      "className" : "BugzillaGetAttachment",
+      "packageName" : "com.ca.bugzilla",
+      "requestURI" : "${Protocol}://${Host}:${Port}/${Source Path}/attachment/${Id}",
+      "requestMethod" : "GET",
+      "timeout" : 30,
+      "language" : "",
+      "bodyContent" : {
+         "contentType" : "",
+         "encoding" : "",
+         "rawRequest" : ""
+      },
+      "authentication" : [ "NONE" ]
+   }
+}
